@@ -7,6 +7,32 @@
 
 This project is a starting point for a Flutter application.
 
+# 📐 System Design
+
+Files Structure Based On Clean Archticture Without Domain Layer.
+ 
+- lib
+  
+      - config
+      - core
+            - di
+            - helpers
+            - networking
+            - routes
+            - themes
+            - widgets
+      - modules
+            - x
+                - data
+                      - models
+                      - repos
+                - logic
+                      - cubit
+                      - bloc
+                - ui
+                      - screens
+                      - widgets
+
 # ♻️ Languages 
 
 This project is a crossplateform application built with Clean Architecture 🧤 & coded by:

@@ -18,6 +18,11 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // MARK: - Variables.
+    final formKey = GlobalKey<FormState>();
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -55,6 +60,7 @@ class LoginScreen extends StatelessWidget {
                   verticalSpace(20),
                   const LoginBlocListener(),
                 ],
+
               ),
             ],
           ),

@@ -60,17 +60,18 @@ This project is a crossplateform application built with Clean Architecture 🧤 
 </p>
 
 # ⚙️ Dependencies
-
-▪️ flutter_native_splash: ^2.3.5
-▪️ intl: ^0.18.0
-▪️ easy_localization: ^3.0.3▪
-▪️ flutter_bloc: ^8.1.3
-▪️ freezed: ^2.4.5
-▪️ freezed_annotation: ^2.4.1
-▪️ get_it: ^7.6.4
-▪️ json_annotation: ^4.8.1
-▪️ json_serializable: ^6.7.1
-▪️ dio: ^5.3.3
-▪️ retrofit: ^4.0.3
-▪️ retrofit_generator: ^8.0.4
-▪️ pretty_dio_logger: ^1.3.1
+```yaml
+ flutter_native_splash: ^2.3.5
+ intl: ^0.18.0
+ easy_localization: ^3.0.3▪
+ flutter_bloc: ^8.1.3
+ freezed: ^2.4.5
+ freezed_annotation: ^2.4.1
+ get_it: ^7.6.4
+ json_annotation: ^4.8.1
+ json_serializable: ^6.7.1
+ dio: ^5.3.3
+ retrofit: ^4.0.3
+ retrofit_generator: ^8.0.4
+ pretty_dio_logger: ^1.3.1
+```

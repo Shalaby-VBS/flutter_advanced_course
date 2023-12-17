@@ -8,3 +8,4 @@ class ColorsManager {
   static const lighterGrey = Color(0xFFC2C2C2);
   static const transparentGrey = Color(0xFFFDFDFF);
 }
+

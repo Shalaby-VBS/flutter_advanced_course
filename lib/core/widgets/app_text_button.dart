@@ -16,6 +16,11 @@ class AppTextButton extends StatelessWidget {
         this.backgroundColor,
         this.height,
         this.width});
+      required this.text,
+      required this.onPressed,
+      this.backgroundColor,
+      this.height,
+      this.width});
 
   @override
   Widget build(BuildContext context) {

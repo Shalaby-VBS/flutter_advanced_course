@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced/core/di/dependency_injection.dart';
 import 'package:flutter_advanced/core/routing/routes.dart';
+import 'package:flutter_advanced/modules/login/logic/toggle_cubit/toggle_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../modules/home/ui/screens/home_screen.dart';
@@ -37,6 +38,12 @@ class AppRouter {
         );
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
+            builder: (_) => MultiBlocProvider(providers: [
+                  BlocProvider<ToggleCubit>(
+                      create: (BuildContext context) => ToggleCubit()),
+                  BlocProvider<RememberMeCubit>(
+                      create: (BuildContext context) => RememberMeCubit()),
+                ], child: const LoginScreen()));
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

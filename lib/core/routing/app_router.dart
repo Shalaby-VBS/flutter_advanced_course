@@ -38,12 +38,6 @@ class AppRouter {
         );
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
-            builder: (_) => MultiBlocProvider(providers: [
-                  BlocProvider<ToggleCubit>(
-                      create: (BuildContext context) => ToggleCubit()),
-                  BlocProvider<RememberMeCubit>(
-                      create: (BuildContext context) => RememberMeCubit()),
-                ], child: const LoginScreen()));
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

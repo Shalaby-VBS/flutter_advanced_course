@@ -11,6 +11,11 @@ class AppTextButton extends StatelessWidget {
   final double? width;
   const AppTextButton(
       {super.key,
+        required this.text,
+        required this.onPressed,
+        this.backgroundColor,
+        this.height,
+        this.width});
       required this.text,
       required this.onPressed,
       this.backgroundColor,

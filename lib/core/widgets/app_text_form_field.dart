@@ -6,33 +6,38 @@ import '../themes/text_styles.dart';
 
 class AppTextFormField extends StatelessWidget {
   final TextEditingController controller;
+  final Function(String?) validator;
+  final TextInputType? keyboardType;
   final String hintText;
   final FocusNode? focusNode;
   final EdgeInsetsGeometry? contentPadding;
   final TextStyle? hintStyle;
   final TextStyle? inputTextStyle;
-  final Widget? prefixIcon;
+  final IconData? prefixIcon;
   final Widget? suffixIcon;
   final bool? isObscureText;
   final Color? fillColor;
   const AppTextFormField(
       {super.key,
-      required this.controller,
-      required this.hintText,
-      this.prefixIcon,
-      this.suffixIcon,
-      this.isObscureText,
-      this.hintStyle,
-      this.inputTextStyle,
-      this.contentPadding,
-      this.fillColor,
-      this.focusNode});
+        required this.controller,
+        required this.hintText,
+        this.prefixIcon,
+        this.suffixIcon,
+        this.isObscureText,
+        this.hintStyle,
+        this.inputTextStyle,
+        this.contentPadding,
+        this.fillColor,
+        this.focusNode,
+        required this.validator, this.keyboardType});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      validator: (value) => validator(value),
       focusNode: focusNode,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         isDense: true,
         filled: true,
@@ -44,13 +49,22 @@ class AppTextFormField extends StatelessWidget {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide:
-              const BorderSide(color: ColorsManager.lightGrey, width: 1.2),
+          const BorderSide(color: ColorsManager.lightGrey, width: 1.2),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: const BorderSide(color: Colors.blue, width: 1.2),
         ),
-        prefixIcon: prefixIcon,
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: const BorderSide(color: Colors.red, width: 1.2),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: const BorderSide(color: Colors.red, width: 1.2),
+        ),
+        prefixIcon: prefixIcon == null ? null :
+        Icon(prefixIcon, color: ColorsManager.grey),
         suffixIcon: suffixIcon,
       ),
       obscureText: isObscureText ?? false,

@@ -2,6 +2,7 @@ class ApiConstants {
   static const String baseUrl = "https://vcare.integration25.com/api/";
 
   static const String login = "auth/login";
+  static const String signup = "auth/register";
 }
 
 class ApiErrors {
@@ -21,5 +22,4 @@ class ApiErrors {
   static const String cancel = "Cancel";
   static const String connectionTimeout = "Connection Timeout Error";
   static const String noInternetConnection = "No Internet Connection Error";
-
 }

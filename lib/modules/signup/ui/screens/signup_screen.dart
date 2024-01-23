@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced/core/helpers/extenstions.dart';
 import 'package:flutter_advanced/core/helpers/spacing.dart';
-import 'package:flutter_advanced/core/routing/routes.dart';
 import 'package:flutter_advanced/core/themes/text_styles.dart';
 import 'package:flutter_advanced/core/widgets/app_text_button.dart';
 import 'package:flutter_advanced/modules/login/ui/widgets/terms_and_conditions_text.dart';
+import 'package:flutter_advanced/modules/signup/ui/widgets/already_have_account_text.dart';
+import 'package:flutter_advanced/modules/signup/ui/widgets/signup_form.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/routing/routes.dart';
 import '../../../../core/widgets/clickable_text_span.dart';
-import '../../../signup/ui/widgets/already_have_account_text.dart';
-import '../../data/models/login_request_body.dart';
-import '../../logic/login_cubit.dart';
-import '../widgets/dont_have_account_text.dart';
-import '../widgets/forget_password_and_remember_me_row.dart';
-import '../widgets/login_bloc_listener.dart';
-import '../widgets/login_form.dart';
+import '../../logic/signup_cubit.dart';
+import '../widgets/signup_bloc_listener.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +31,10 @@ class LoginScreen extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Welcome Back!', style: TextStyles.size24BlueBold),
+                  Text('Create Account', style: TextStyles.size24BlueBold),
                   verticalSpace(8),
                   Text(
-                    '''We're excited to have you back, can't wait to see what you've been up to since you last logged in.''',
+                    '''Sign up now and start exploring all that our app has to offer. We're excited to welcome you to our community!''',
                     style: TextStyles.size14GreyRegular,
                   ),
                 ],
@@ -44,28 +42,26 @@ class LoginScreen extends StatelessWidget {
               verticalSpace(36),
               Column(
                 children: [
-                  const LoginForm(),
-                  verticalSpace(20),
-                  const ForgetPasswordAndRememberMeRow(),
+                  const SignupForm(),
                   verticalSpace(24),
                   AppTextButton(
-                    text: 'Login',
+                    text: 'Create Account',
                     onPressed: () {
-                      validateAndLogin(context);
+                      validateAndSignup(context);
                     },
                   ),
                   verticalSpace(24),
                   const TermsAndConditionsText(),
-                  verticalSpace(50),
+                  verticalSpace(24),
                   ClickableTextSpan(
-                    preClickableText: 'Don\'t have an account?',
-                    clickableText: 'Sign Up',
+                    preClickableText: 'Already have an account?',
+                    clickableText: 'Login',
                     onTap: () {
-                      context.pushNamed(Routes.signupScreen);
+                      context.pushNamed(Routes.loginScreen);
                     },
                   ),
                   verticalSpace(20),
-                  const LoginBlocListener(),
+                  const SignupBlocListener(),
                 ],
               ),
             ],
@@ -75,9 +71,9 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  void validateAndLogin(BuildContext context) {
-    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginStates();
+  void validateAndSignup(BuildContext context) {
+    if (context.read<SignupCubit>().formKey.currentState!.validate()) {
+      context.read<SignupCubit>().emitSignupStates();
     }
   }
 }

@@ -1,4 +1,8 @@
 class AppRegExp {
+  static bool isNameValid(String name) {
+    return name.length >= 3;
+  }
+
   static bool isEmailValid(String email) {
     return RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(email);
   }
@@ -9,6 +13,18 @@ class AppRegExp {
         hasNumber(password) &&
         hasSpecialCharacters(password) &&
         hasMinLength(password);
+  }
+
+  static bool isConfirmPasswordValid(String confirmPassword) {
+    return hasLowerCase(confirmPassword) &&
+        hasUpperCase(confirmPassword) &&
+        hasNumber(confirmPassword) &&
+        hasSpecialCharacters(confirmPassword) &&
+        hasMinLength(confirmPassword);
+  }
+
+  static bool isPhoneNumberValid(String phoneNumber) {
+    return RegExp(r'^(010|011|012|015)[0-9]{8}$').hasMatch(phoneNumber);
   }
 
   static bool hasLowerCase(String password) {
